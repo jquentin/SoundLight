@@ -15,6 +15,7 @@
 @property int score;
 @property int targetScore;
 @property SKAction * sound;
--(id)initWithSize:(CGSize)size background:(UIColor *)bgCol andText:(UIColor *)textCol andScore:(int)score andSound:(SKAction *)sound;
+@property NSMutableArray * indSounds;
+-(id)initWithSize:(CGSize)size background:(UIColor *)bgCol andText:(UIColor *)textCol andScore:(int)score andSounds:(NSMutableArray *)sounds;
 -(void)increaseScore;
 @end

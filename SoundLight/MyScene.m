@@ -15,6 +15,7 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
+        self.indSounds = [[NSMutableArray alloc] init];
         self.firstTime = true;
         self.maskTriggered = false;
         self.gameOver = false;
@@ -247,14 +248,9 @@
 
 -(void) fireNextButton
 {
-    NSMutableArray * indSounds = [NSMutableArray array];
     for (PadButton * button in self.buttonsNextFire) {
-        int s = arc4random()%self.soundActions.count;
-        while ([indSounds containsObject:@(s)]) {
-            s = arc4random()%self.soundActions.count;
-        }
         [button fireAtTime:self.gameTime withSound:self.soundActions[button.index]];
-        [indSounds addObject:@(s)];
+        [self.indSounds addObject:(self.soundActions[button.index])];
     }
     self.hasStartedFiring = true;
     [self loadNextFire];
@@ -383,7 +379,7 @@
 {
     self.gameOver = true;
     SKTransition * reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
-    GameOverScene * goScene = [[GameOverScene alloc] initWithSize: self.size background:self.backgroundColor andText:self.buttonGameOver.color andScore:self.score andSound:self.soundActions[self.soundActions.count-1]];
+    GameOverScene * goScene = [[GameOverScene alloc] initWithSize: self.size background:self.backgroundColor andText:self.buttonGameOver.color andScore:self.score andSounds:self.indSounds];
     [self.scene.view presentScene: goScene transition: reveal];
 }
 

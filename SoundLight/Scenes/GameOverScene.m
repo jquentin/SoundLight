@@ -11,7 +11,7 @@
 
 @implementation GameOverScene
 
--(id)initWithSize:(CGSize)size background:(UIColor *)bgCol andText:(UIColor *)textCol andScore:(int)score andSound:(SKAction *)sound
+-(id)initWithSize:(CGSize)size background:(UIColor *)bgCol andText:(UIColor *)textCol andScore:(int)score andSounds:(NSMutableArray *)sounds
 {
     if (self = [super initWithSize:size]) {
 //        self.backgroundColor = [UIColor blackColor];
@@ -24,15 +24,11 @@
         [self addChild:label];
         self.score = 0;
         self.targetScore = score;
-        self.sound = sound;
+        self.indSounds = sounds;
         self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"HelveticaNeue"];
         self.scoreLabel.text = @"0";
         self.scoreLabel.fontColor = textCol;
         self.scoreLabel.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 30);
-        SKAction * inc = [SKAction performSelector:@selector(increaseScore) onTarget:self];
-        SKAction * wait = [SKAction waitForDuration:0.05];
-        SKAction * comb = [SKAction sequence:@[wait, inc]];
-        [self runAction:[SKAction repeatAction:comb count:score]];
         
         int oldHighScore = [[[ NSUserDefaults standardUserDefaults] objectForKey:@"HighScore"] intValue ];
         if (oldHighScore > 0)
@@ -58,6 +54,11 @@
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:score] forKey:@"HighScore"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
+        
+        SKAction * inc = [SKAction performSelector:@selector(increaseScore) onTarget:self];
+        SKAction * wait = [SKAction waitForDuration:0.15];
+        SKAction * comb = [SKAction sequence:@[wait, inc]];
+        [self runAction:[SKAction repeatAction:comb count:score]];
     }
     return self;
 }
@@ -65,6 +66,7 @@
 {
     if (self.scoreLabel.parent == nil)
         [self addChild:self.scoreLabel];
+    [self runAction:self.indSounds[self.score]];
     self.score++;
     self.scoreLabel.text = [NSString stringWithFormat:@"%d",self.score];
     if (self.bestScoreLabel != nil && self.score > self.bestScoreLabelCurrentValue)
@@ -72,7 +74,6 @@
         self.bestScoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
         self.bestScoreLabelCurrentValue = self.score;
     }
-    [self runAction:self.sound];
 }
 
 -(void)setScoreDirectly:(int)score

@@ -32,6 +32,7 @@
 @property int chanceTriple;
 @property int score;
 @property SKSpriteNode * mask;
+@property NSMutableArray * indSounds;
 -(void) endGameBecauseOfButton:(PadButton *)button;
 -(CGPoint)positionForButton:(int)index;
 -(void) fireNextButton;
