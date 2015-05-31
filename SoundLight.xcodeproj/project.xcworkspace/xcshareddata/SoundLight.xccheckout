@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3326D204-3032-40D6-AF4A-BF29C5291BE0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SoundLight</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9a149a02-9b0b-437f-8934-f854d04a8d92</key>
+		<string>https://svn.code.sf.net/p/soundlight/code</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SoundLight.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9a149a02-9b0b-437f-8934-f854d04a8d92</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9a149a02-9b0b-437f-8934-f854d04a8d92</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9a149a02-9b0b-437f-8934-f854d04a8d92</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SoundLightSVN</string>
+		</dict>
+	</array>
+</dict>
+</plist>
