@@ -31,6 +31,7 @@
 @property int chanceDouble;
 @property int chanceTriple;
 @property int score;
+@property float firstUnfireTime;
 @property SKSpriteNode * mask;
 @property NSMutableArray * indSounds;
 -(void) endGameBecauseOfButton:(PadButton *)button;

@@ -24,7 +24,6 @@
 @property int bestScoreLabelCurrentValue;
 @property int score;
 @property int targetScore;
-@property SKAction * sound;
 @property NSMutableArray * indSounds;
 -(id)initWithSize:(CGSize)size background:(UIColor *)bgCol andText:(UIColor *)textCol andScore:(int)score andSounds:(NSMutableArray *)sounds;
 -(void)increaseScore;

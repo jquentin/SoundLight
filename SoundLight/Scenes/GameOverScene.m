@@ -67,23 +67,12 @@
         }
         
         SKAction * inc = [SKAction performSelector:@selector(increaseScore) onTarget:self];
-        SKAction * wait = [SKAction waitForDuration:1];
-        SKAction * comb = [SKAction sequence:@[wait, inc]];
         
-//        SKAction * ac = wait;
-        
-        NSMutableArray * actions = [[NSMutableArray alloc] init];
-        
-        [actions addObject:wait];
         for (SoundInfo * si in self.indSounds) {
-            SKAction * wait = [SKAction waitForDuration:0.2*si.time];
+            SKAction * wait = [SKAction waitForDuration:0.2 * si.time + 0.2];
             SKAction * ac = [SKAction sequence:@[wait, si.sound, inc]];
             [self runAction:ac];
         }
-//        NSArray * actionsStatic = [actions copy];
-//        SKAction * ac = [SKAction sequence:actionsStatic];
-//        [self runAction:ac];
-//        [self runAction:[SKAction repeatAction:comb count:score]];
     }
     return self;
 }
@@ -91,7 +80,6 @@
 {
     if (self.scoreLabel.parent == nil)
         [self addChild:self.scoreLabel];
-//    [self runAction:self.indSounds[self.score]];
     self.score++;
     self.scoreLabel.text = [NSString stringWithFormat:@"%d",self.score];
     if (self.bestScoreLabel != nil && self.score > self.bestScoreLabelCurrentValue)
@@ -112,7 +100,6 @@
         self.bestScoreLabel.text = [NSString stringWithFormat:@"%d", self.score];
         self.bestScoreLabelCurrentValue = self.score;
     }
-    [self runAction:self.sound];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -123,7 +110,7 @@
         MyScene * gameScene = [[MyScene alloc] initWithSize: self.size];
         [self.scene.view presentScene: gameScene transition: reveal];
     }
-    else
+    else if (self.score > 2)
     {
         [self removeAllActions];
         [self setScoreDirectly:self.targetScore];

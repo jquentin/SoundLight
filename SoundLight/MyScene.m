@@ -196,7 +196,6 @@
                 {
                     [b unFire];
                     self.score++;
-                    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:b.unfireSound andTime:self.gameTime]];
                     [self UpdateDifficulty];
                     bool hasStarted = self.hasStartedPlaying;
                     self.hasStartedPlaying = true;
@@ -205,7 +204,9 @@
                         [self waitAndFire];
                         self.maskTriggered = false;
                         [self clearMask];
+                        self.firstUnfireTime = self.gameTime;
                     }
+                    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:b.unfireSound andTime:self.gameTime - self.firstUnfireTime]];
                     
                 }
                 else
