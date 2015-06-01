@@ -8,6 +8,16 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+
+@interface SoundInfo : NSObject
+
+@property NSMutableArray * sounds;
+@property float timeBefore;
+
+-(id)initWithSounds:(NSMutableArray *)sounds andTime:(float)time;
+
+@end
+
 @interface GameOverScene : SKScene
 @property SKLabelNode * scoreLabel;
 @property SKLabelNode * bestScoreLabel;

@@ -248,24 +248,32 @@
 
 -(void) fireNextButton
 {
+    NSMutableArray * sounds = [[NSMutableArray alloc] init];
     for (PadButton * button in self.buttonsNextFire) {
         [button fireAtTime:self.gameTime withSound:self.soundActions[button.index]];
-        [self.indSounds addObject:(self.soundActions[button.index])];
+//        [self.indSounds addObject:(self.soundActions[button.index])];
+        [sounds addObject:(self.soundActions[button.index])];
     }
+    
+//    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:<#(float)#>];
     self.hasStartedFiring = true;
     [self loadNextFire];
     if (!self.hasStartedPlaying)
         return;
-    [self waitAndFire];
+//    [self waitAndFire];
+    NSUInteger nbToFire = self.buttonsNextFire.count;
+    float delay = (nbToFire == 1 && arc4random()%2 == 0) ? 1 : 2;
+    [self waitAndFireWithDelay:delay/self.gameSpeed];
+    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:delay]];
 }
 
 -(void) waitAndFire
 {
     NSUInteger nbToFire = self.buttonsNextFire.count;
-    [self waitAndFire:(nbToFire == 1 && arc4random()%2 == 0) ? 1/self.gameSpeed : 2/self.gameSpeed];
+    [self waitAndFireWithDelay:(nbToFire == 1 && arc4random()%2 == 0) ? 1/self.gameSpeed : 2/self.gameSpeed];
 }
 
--(void) waitAndFire:(float) delay
+-(void) waitAndFireWithDelay:(float) delay
 {
     SKAction * wait = [SKAction waitForDuration:delay];
     SKAction * fire = [SKAction performSelector:@selector(fireNextButton) onTarget:self];
@@ -415,7 +423,14 @@
         
         [self loadNextFire:false];
         
-        [self waitAndFire:introTime + 0.5];
+        
+        NSMutableArray * sounds = [[NSMutableArray alloc] init];
+        for (PadButton * button in self.buttonsNextFire) {
+            [sounds addObject:(self.soundActions[button.index])];
+        }
+        [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:0]];
+        
+        [self waitAndFireWithDelay:introTime + 0.5];
         
         self.firstTime = false;
     }

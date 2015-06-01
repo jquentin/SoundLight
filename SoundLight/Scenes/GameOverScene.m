@@ -9,6 +9,17 @@
 #import "GameOverScene.h"
 #import "MyScene.h"
 
+@implementation SoundInfo
+-(id)initWithSounds:(NSMutableArray *)sounds andTime:(float)time
+{
+    if (self = [super init]) {
+        self.sounds = sounds;
+        self.timeBefore = time;
+    }
+    return self;
+}
+@end
+
 @implementation GameOverScene
 
 -(id)initWithSize:(CGSize)size background:(UIColor *)bgCol andText:(UIColor *)textCol andScore:(int)score andSounds:(NSMutableArray *)sounds
@@ -56,9 +67,29 @@
         }
         
         SKAction * inc = [SKAction performSelector:@selector(increaseScore) onTarget:self];
-        SKAction * wait = [SKAction waitForDuration:0.15];
+        SKAction * wait = [SKAction waitForDuration:1];
         SKAction * comb = [SKAction sequence:@[wait, inc]];
-        [self runAction:[SKAction repeatAction:comb count:score]];
+        
+//        SKAction * ac = wait;
+        
+        NSMutableArray * actions = [[NSMutableArray alloc] init];
+        
+        [actions addObject:wait];
+        for (SoundInfo * si in self.indSounds) {
+            SKAction * wait = [SKAction waitForDuration:1*si.timeBefore];
+            [actions addObject:wait];
+            for (SKAction * a in si.sounds) {
+                [actions addObject:a];
+                [actions addObject:inc];
+//                ac = [SKAction sequence:@[ac, a]];
+//                ac = [SKAction sequence:@[ac, inc]];
+            }
+//            ac = [SKAction sequence:@[ac, wait]];
+        }
+        NSArray * actionsStatic = [actions copy];
+        SKAction * ac = [SKAction sequence:actionsStatic];
+        [self runAction:ac];
+//        [self runAction:[SKAction repeatAction:comb count:score]];
     }
     return self;
 }
@@ -66,7 +97,7 @@
 {
     if (self.scoreLabel.parent == nil)
         [self addChild:self.scoreLabel];
-    [self runAction:self.indSounds[self.score]];
+//    [self runAction:self.indSounds[self.score]];
     self.score++;
     self.scoreLabel.text = [NSString stringWithFormat:@"%d",self.score];
     if (self.bestScoreLabel != nil && self.score > self.bestScoreLabelCurrentValue)
