@@ -296,80 +296,81 @@
 
 -(void)UpdateDifficulty
 {
+    int difficultyUnit = 25;
     int score = self.score;
-    if (score < 50)
+    if (score < 1 * difficultyUnit)
     {
         self.gameSpeed = 1.4;
         self.chanceDouble = 20;
         self.chanceTriple = 0;
     }
-    else if (score < 100)
+    else if (score < 2 * difficultyUnit)
     {
         self.gameSpeed = 1.5;
         self.chanceDouble = 20;
         self.chanceTriple = 0;
     }
-    else if (score < 200)
+    else if (score < 4 * difficultyUnit)
     {
         self.gameSpeed = 1.5;
         self.chanceDouble = 30;
         self.chanceTriple = 0;
     }
-    else if (score < 300)
+    else if (score < 6 * difficultyUnit)
     {
         self.gameSpeed = 1.5;
         self.chanceDouble = 30;
         self.chanceTriple = 10;
     }
-    else if (score < 400)
+    else if (score < 8 * difficultyUnit)
     {
         self.gameSpeed = 1.6;
         self.chanceDouble = 30;
         self.chanceTriple = 10;
     }
-    else if (score < 500)
+    else if (score < 10 * difficultyUnit)
     {
         self.gameSpeed = 1.6;
         self.chanceDouble = 40;
         self.chanceTriple = 10;
     }
-    else if (score < 600)
+    else if (score < 12 * difficultyUnit)
     {
         self.gameSpeed = 1.6;
         self.chanceDouble = 40;
         self.chanceTriple = 15;
     }
-    else if (score < 700)
+    else if (score < 14 * difficultyUnit)
     {
         self.gameSpeed = 1.7;
         self.chanceDouble = 40;
         self.chanceTriple = 15;
     }
-    else if (score < 800)
+    else if (score < 16 * difficultyUnit)
     {
         self.gameSpeed = 1.7;
         self.chanceDouble = 40;
         self.chanceTriple = 20;
     }
-    else if (score < 900)
+    else if (score < 18 * difficultyUnit)
     {
         self.gameSpeed = 1.8;
         self.chanceDouble = 40;
         self.chanceTriple = 20;
     }
-    else if (score < 1000)
+    else if (score < 20 * difficultyUnit)
     {
         self.gameSpeed = 1.8;
         self.chanceDouble = 40;
         self.chanceTriple = 20;
     }
-    else if (score < 1200)
+    else if (score < 24 * difficultyUnit)
     {
         self.gameSpeed = 2.2;
         self.chanceDouble = 40;
         self.chanceTriple = 20;
     }
-    else if (score < 1500)
+    else if (score < 25 * difficultyUnit)
     {
         self.gameSpeed = 2.5;
         self.chanceDouble = 40;
