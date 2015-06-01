@@ -11,10 +11,10 @@
 
 @interface SoundInfo : NSObject
 
-@property NSMutableArray * sounds;
-@property float timeBefore;
+@property SKAction * sound;
+@property float time;
 
--(id)initWithSounds:(NSMutableArray *)sounds andTime:(float)time;
+-(id)initWithSounds:(SKAction *)sound andTime:(float)time;
 
 @end
 

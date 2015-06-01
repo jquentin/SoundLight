@@ -10,11 +10,11 @@
 #import "MyScene.h"
 
 @implementation SoundInfo
--(id)initWithSounds:(NSMutableArray *)sounds andTime:(float)time
+-(id)initWithSounds:(SKAction *)sound andTime:(float)time
 {
     if (self = [super init]) {
-        self.sounds = sounds;
-        self.timeBefore = time;
+        self.sound = sound;
+        self.time = time;
     }
     return self;
 }
@@ -76,19 +76,13 @@
         
         [actions addObject:wait];
         for (SoundInfo * si in self.indSounds) {
-            SKAction * wait = [SKAction waitForDuration:1*si.timeBefore];
-            [actions addObject:wait];
-            for (SKAction * a in si.sounds) {
-                [actions addObject:a];
-                [actions addObject:inc];
-//                ac = [SKAction sequence:@[ac, a]];
-//                ac = [SKAction sequence:@[ac, inc]];
-            }
-//            ac = [SKAction sequence:@[ac, wait]];
+            SKAction * wait = [SKAction waitForDuration:0.2*si.time];
+            SKAction * ac = [SKAction sequence:@[wait, si.sound, inc]];
+            [self runAction:ac];
         }
-        NSArray * actionsStatic = [actions copy];
-        SKAction * ac = [SKAction sequence:actionsStatic];
-        [self runAction:ac];
+//        NSArray * actionsStatic = [actions copy];
+//        SKAction * ac = [SKAction sequence:actionsStatic];
+//        [self runAction:ac];
 //        [self runAction:[SKAction repeatAction:comb count:score]];
     }
     return self;

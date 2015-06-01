@@ -196,6 +196,7 @@
                 {
                     [b unFire];
                     self.score++;
+                    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:b.unfireSound andTime:self.gameTime]];
                     [self UpdateDifficulty];
                     bool hasStarted = self.hasStartedPlaying;
                     self.hasStartedPlaying = true;
@@ -264,7 +265,7 @@
     NSUInteger nbToFire = self.buttonsNextFire.count;
     float delay = (nbToFire == 1 && arc4random()%2 == 0) ? 1 : 2;
     [self waitAndFireWithDelay:delay/self.gameSpeed];
-    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:delay]];
+//    [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:delay]];
 }
 
 -(void) waitAndFire
@@ -428,7 +429,7 @@
         for (PadButton * button in self.buttonsNextFire) {
             [sounds addObject:(self.soundActions[button.index])];
         }
-        [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:0]];
+//        [self.indSounds addObject:[[SoundInfo alloc] initWithSounds:sounds andTime:0]];
         
         [self waitAndFireWithDelay:introTime + 0.5];
         
