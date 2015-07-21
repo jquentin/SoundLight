@@ -263,7 +263,7 @@ static int lastPalette = -1;
     NSMutableArray * indexes = [NSMutableArray array];
     for (int i = 0; i < nbToFire; i++) {
         int nbButtonToFire = arc4random()%self.pads.count;
-        while (((PadButton *)self.pads[nbButtonToFire]).fired || [indexes containsObject:@(nbButtonToFire)])
+        while (((PadButton *)self.pads[nbButtonToFire]).fired || [indexes containsObject:@(nbButtonToFire)] || [indexes containsObject:@(nbButtonToFire - 1)] || [indexes containsObject:@(nbButtonToFire + 1)])
         {
             nbButtonToFire = arc4random()%self.pads.count;
         }
