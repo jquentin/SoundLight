@@ -13,6 +13,8 @@
 
 @implementation MyScene
 
+static int lastPalette = -1;
+
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         self.indSounds = [[NSMutableArray alloc] init];
@@ -59,8 +61,19 @@
                                UIColorFromRGB(0xA8A844),
                                UIColorFromRGB(0x828700),
                                nil ]];
-        NSArray * palettes = [NSArray arrayWithObjects:palette1, palette2, palette3, palette4, palette5, nil];
-        Palette * palette = palettes[arc4random()%palettes.count];
+        Palette * palette6 = [[Palette alloc] initWithBackground:UIColorFromRGB(0xE87E0C) andColors :
+                              [NSArray arrayWithObjects:
+                               UIColorFromRGB(0xFFE500),
+                               UIColorFromRGB(0xFF0000),
+                               UIColorFromRGB(0x8A0CE8),
+                               UIColorFromRGB(0x0D6AFF),
+                               nil ]];
+        NSArray * palettes = [NSArray arrayWithObjects:palette1, palette2, palette3, palette4, palette5, palette6, nil];
+        int choicePalette = arc4random()%palettes.count;
+        while(choicePalette == lastPalette)
+            choicePalette = arc4random()%palettes.count;
+        Palette * palette = palettes[choicePalette];
+        lastPalette = choicePalette;
         self.palette = palette;
         self.backgroundColor = palette.bg;
         self.buttonsNextFire = [NSMutableArray array];
@@ -125,6 +138,17 @@
                                     [SKAction playSoundFileNamed:@"sounds/Xylo/7-d3.wav" waitForCompletion:false],
                                     [SKAction playSoundFileNamed:@"sounds/Xylo/8-e3.wav" waitForCompletion:false],
                                     [SKAction playSoundFileNamed:@"sounds/Xylo/9-g3.wav" waitForCompletion:false],
+                                    nil],
+                                   [NSArray arrayWithObjects:
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/1-c3.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/2-d3.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/3-e3.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/4-g3.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/5-a3.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/6-c4.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/7-d4.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/8-e4.wav" waitForCompletion:false],
+                                    [SKAction playSoundFileNamed:@"sounds/Banjo/9-g4.wav" waitForCompletion:false],
                                     nil],
                                    nil];
         self.soundActions = (NSArray *)soundPalettes[arc4random() % soundPalettes.count];
