@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6D05AF91B5DC315007F371A /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D05AF81B5DC315007F371A /* pause.png */; };
 		DB0520BB1AEDBB7B007B7B74 /* CircularQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0520BA1AEDBB7B007B7B74 /* CircularQueue.m */; };
 		DB365B2A1A3FF4910001E7EE /* Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = DB365B291A3FF4910001E7EE /* Mask.png */; };
 		DB45C8061AB3DDAF00F48547 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = DB45C8001AB3DDAF00F48547 /* Icon-29.png */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6D05AF81B5DC315007F371A /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		DB0520B91AEDBB48007B7B74 /* CircularQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularQueue.h; sourceTree = "<group>"; };
 		DB0520BA1AEDBB7B007B7B74 /* CircularQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularQueue.m; sourceTree = "<group>"; };
 		DB365B291A3FF4910001E7EE /* Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask.png; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		DBAC7D7C191AED3E00C3EFF8 /* SoundLight */ = {
 			isa = PBXGroup;
 			children = (
+				A6D05AF81B5DC315007F371A /* pause.png */,
 				DB45C8001AB3DDAF00F48547 /* Icon-29.png */,
 				DB45C8011AB3DDAF00F48547 /* Icon-40.png */,
 				DB45C8021AB3DDAF00F48547 /* Icon-58.png */,
@@ -248,10 +251,10 @@
 				DBD585791AA2DA1A0098DBFB /* Icon-128test.png */,
 				DBD5857A1AA2DA1A0098DBFB /* Icon-128.png */,
 				DBAC7D8F191AED3E00C3EFF8 /* ViewController.m */,
-				DBAC7D91191AED3E00C3EFF8 /* MyScene.h */,
-				DB0520BA1AEDBB7B007B7B74 /* CircularQueue.m */,
-				DBAC7D92191AED3E00C3EFF8 /* MyScene.m */,
 				DB0520B91AEDBB48007B7B74 /* CircularQueue.h */,
+				DB0520BA1AEDBB7B007B7B74 /* CircularQueue.m */,
+				DBAC7D91191AED3E00C3EFF8 /* MyScene.h */,
+				DBAC7D92191AED3E00C3EFF8 /* MyScene.m */,
 				DBAFC75B191E2F91004A3367 /* Palette.h */,
 				DBAFC75C191E2F91004A3367 /* Palette.m */,
 				DBAC7DBC191C51FC00C3EFF8 /* UIColor-Expanded.h */,
@@ -379,6 +382,7 @@
 			files = (
 				DB365B2A1A3FF4910001E7EE /* Mask.png in Resources */,
 				DB45C8241AB5282700F48547 /* Icon-50.png in Resources */,
+				A6D05AF91B5DC315007F371A /* pause.png in Resources */,
 				DB45C8091AB3DDAF00F48547 /* Icon-76.png in Resources */,
 				DB45C8191AB5212100F48547 /* Icon-180.png in Resources */,
 				DBDFB9BB1AB5514B00F7EA27 /* Launch-iPhonex1.png in Resources */,

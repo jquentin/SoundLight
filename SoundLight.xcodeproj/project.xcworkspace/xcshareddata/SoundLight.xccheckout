@@ -10,29 +10,29 @@
 	<string>SoundLight</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9a149a02-9b0b-437f-8934-f854d04a8d92</key>
-		<string>https://svn.code.sf.net/p/soundlight/code</string>
+		<key>b01c449d-cb88-8aed-3e7b-ce57b7db7bff</key>
+		<string>https://github.com/jquentin/SoundLight.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SoundLight.xcodeproj</string>
+	<string>trunk/SoundLight.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9a149a02-9b0b-437f-8934-f854d04a8d92</key>
-		<string>../..</string>
+		<key>b01c449d-cb88-8aed-3e7b-ce57b7db7bff</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9a149a02-9b0b-437f-8934-f854d04a8d92</string>
+	<string>b01c449d-cb88-8aed-3e7b-ce57b7db7bff</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9a149a02-9b0b-437f-8934-f854d04a8d92</string>
+			<string>b01c449d-cb88-8aed-3e7b-ce57b7db7bff</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SoundLightSVN</string>
+			<string>SoundLight%20Github</string>
 		</dict>
 	</array>
 </dict>
